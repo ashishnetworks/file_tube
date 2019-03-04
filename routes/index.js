@@ -18,8 +18,7 @@ const storage = multer.diskStorage({
 
 var upload = multer({storage:storage})
 
-/* GET home page. */
-router.use('/ftp', express.static('./uploads'), serveIndex('./uploads', {'icons': true}))
+router.use('/ftp', express.static(uploadPath), serveIndex(uploadPath, {'icons': true}))
 
 router.use('/upload', upload.single('screenshot'), (req,res)=> {
 
